@@ -1,5 +1,7 @@
 
 :root {
+  --base-font-size: 22px;
+
   --font-sans: Montserrat, sans-serif;
   --font-alt: Amaranth, sans-serif;
 
@@ -22,6 +24,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
+  font-size: var(--base-font-size);
   margin: 0;
   padding: 0;
   text-size-adjust: none;
@@ -32,11 +35,20 @@ body {
   color: var(--deep-twilight);
   font-family: var(--font-sans);
   font-weight: 600;
-  padding: 5%;
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+p {
+  margin: 0 0 0.75em;
 }
 
 a {
@@ -56,4 +68,100 @@ a {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+
+/* Layout */
+
+.pane {
+  display: grid;
+  grid-template-columns: [left] 20% [center] auto [right] 20%;
+  grid-template-rows: [top] 20% [center] auto [bottom] 20%;
+  margin-bottom: 20%;
+  min-height: 100vh;
+}
+
+.pane:last-child {
+  margin-bottom: 0;
+}
+
+.pane > * {
+  align-self: center;
+  justify-self: center;
+}
+
+.g-topleft,
+.g-left,
+.g-bottomleft {
+  grid-column: left;
+}
+
+.g-topcenter,
+.g-center,
+.g-bottomcenter {
+  grid-column: center;
+}
+
+.g-topright,
+.g-right,
+.g-bottomright {
+  grid-column: right;
+}
+
+.g-topleft,
+.g-topcenter,
+.g-topright {
+  grid-row: top;
+}
+
+.g-left,
+.g-center,
+.g-right {
+  grid-row: center;
+}
+
+.g-bottomleft,
+.g-bottomcenter,
+.g-bottomright {
+  grid-row: bottom;
+}
+
+
+/* Typography */
+
+.hed {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hed::before,
+.hed::after {
+  content: '—';
+  display: inline;
+  margin: 0 0.25em;
+}
+
+.type-alt {
+  font-family: var(--font-alt);
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50ch;
+}
+
+.type-alt--big {
+  font-size: 1.75rem;
+  max-width: 38ch;
+}
+
+
+/* Modules */
+
+.king {
+  left: 50%;
+  margin-left: -50px;
+  position: fixed;
+  top: 20%;
+}
+
 
