@@ -1,0 +1,59 @@
+
+:root {
+  --font-sans: Montserrat, sans-serif;
+  --font-alt: Amaranth, sans-serif;
+
+  --fog: rgb(182, 189, 182);
+  --fog-dark: rgb(163, 170, 163);
+  --twilight: rgb(58, 81, 97);
+  --deep-twilight: rgb(38, 60, 71);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-size: 1em;
+  margin: 0;
+}
+
+/* Elements */
+
+html,
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  margin: 0;
+  padding: 0;
+  text-size-adjust: none;
+}
+
+body {
+  background-color: var(--fog);
+  color: var(--deep-twilight);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 5%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+a {
+  color: var(--deep-twilight);
+}
+
+
+/* Utilities */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
