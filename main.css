@@ -223,7 +223,10 @@ a {
 }
 
 @media (min-width: 1300px) {
-  .pane [class^=g-] {
+  .pane .g-topleft,
+  .pane .g-topright,
+  .pane .g-bottomleft,
+  .pane .g-bottomright {
     height: 200px;
     max-width: 360px;
     width: calc(50% - 320px - 20px);
