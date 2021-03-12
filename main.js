@@ -1,5 +1,4 @@
 (function () {
-
   // ===
   // Smooth scroll
 
@@ -10,16 +9,20 @@
       const id = link.getAttribute('href');
       const section = document.querySelector(id);
       const bounds = section ? section.getBoundingClientRect() : {};
-      
-      if (bounds.y) {
+      const scrollTop =
+        window.document.body.scrollTop ||
+        window.document.documentElement.scrollTop;
+
+      console.log(scrollTop);
+
+      if (bounds.top) {
         e.preventDefault();
         window.scrollTo({
           left: 0,
-          top: bounds.y,
-          behavior: 'smooth'
+          top: bounds.top + scrollTop,
+          behavior: 'smooth',
         });
       }
     });
   });
-
 })();
