@@ -4,13 +4,20 @@
 
   --font-sans: Montserrat, sans-serif;
 
-  --fog: rgb(182, 189, 182);
-  --fog-dark: rgb(163, 170, 163);
-  --twilight: rgb(58, 81, 97);
-  --deep-twilight: rgb(38, 60, 71);
+  --sage: #b6bdb6;
+  --dark-sage: rgb(163, 170, 163);
+
+  --glacier-blue: #2d5266;
+  --flathead-blue: #263c47;
+
+  --ochre: #7f6333;
 
   --black: rgb(0, 0, 0);
   --white: rgb(255, 255, 255);
+
+  --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-in: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *, *::before, *::after {
@@ -33,8 +40,8 @@ body {
 }
 
 body {
-  background-color: var(--fog);
-  color: var(--deep-twilight);
+  background-color: var(--sage);
+  color: var(--flathead-blue);
   font-family: var(--font-sans);
   font-weight: 600;
   padding-bottom: 10px;
@@ -49,7 +56,7 @@ body {
 
 body::before,
 body::after {
-  border-color: var(--deep-twilight);
+  border-color: var(--flathead-blue);
   border-style: solid;
   bottom: 0;
   content: '';
@@ -99,8 +106,22 @@ p {
   margin: 0 0 1.25em;
 }
 
+hr {
+  border: 0;
+  border-top: 3px solid var(--flathead-blue);
+  margin: 40px auto;
+  width: 50px;
+}
+
+@media (min-width: 700px) {
+  hr {
+    border-top-width: 4px;
+    width: 80px;
+  }
+}
+
 a {
-  color: var(--deep-twilight);
+  color: var(--flathead-blue);
 }
 
 
@@ -254,17 +275,101 @@ a {
 }
 
 .subhed {
-  font-size: 1.25em;
-  letter-spacing: 0.05em;
-  margin: 0 0 10px;
-  text-transform: uppercase;
+  font-size: 1.3636363636em;
+  letter-spacing: -0.0125em;
+  line-height: 1.2;
+  margin: 0 0 15px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.subhed::after {
+  border-top: 3px solid var(--flathead-blue);
+  content: '';
+  display: block;
+  left: 0;
+  margin-top: -2px;
+  position: absolute;
+  top: 100%;
+  transition: transform 0.3s var(--ease-in-out);
+  width: 30px;
+}
+
+@media (min-width: 700px) {
+  .subhed::after {
+    border-top-width: 4px;
+    width: 50px;
+  }
+}
+
+.subhed a {
+  position: relative;
+}
+
+.subhed a::before {
+  border-color: transparent transparent transparent var(--dark-sage);
+  border-style: solid;
+  border-width: 0.666em 0 0.666em 1em;
+  content: ' ';
+  display: block;
+  height: 0;
+  margin-right: 0.5em;
+  opacity: 0;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  transform: translateX(-0.5em);
+  transition-duration: 0.3s;
+  transition-property: opacity, transform;
+  transition-timing-function: var(--ease-in);
+  width: 0;
+  will-change: opacity;
+}
+
+.subhed a:focus {
+  background-color: var(--dark-sage);
+}
+
+.subhed a:hover::before,
+.subhed a:focus::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.text-body .subhed a {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.text-body .subhed a:focus {
+  background-color: var(--dark-sage);
 }
 
 .text-body {
   font-size: 0.8181818182rem;
+  line-height: 1.4545454545;
   margin-left: auto;
   margin-right: auto;
   max-width: 44ch;
+}
+
+.text-body a {
+  background-color: var(--dark-sage);
+  border-bottom: 2px solid transparent;
+  padding: 3px 4px 1px;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  transition-property: background, border;
+  transition-timing-function: var(--ease-in);
+}
+
+.text-body a:hover,
+.text-body a:focus {
+  background-color: transparent;
+  border-bottom-color: var(--ochre);
+  outline: none;
+  transition-duration: 0.3s;
 }
 
 @media (min-width: 400px) {
@@ -309,6 +414,11 @@ a {
   .text-big {
     font-size: 1.75rem;
   }
+}
+
+.footnote {
+  font-size: 0.8125em;
+  font-style: italic;
 }
 
 
@@ -366,7 +476,7 @@ a {
 
 .wordmark {
   display: block;
-  fill: var(--twilight);
+  fill: var(--flathead-blue);
   height: auto;
   margin: 40px auto;
   max-width: 75%;
@@ -473,14 +583,30 @@ a {
   }
 }
 
-.navmain a {
+
+/* Modules: Links */
+
+.underlink {
   padding: 12px 8px;
   position: relative;
   text-decoration: none;
 }
 
-.navmain a::after {
-  border-top: 3px solid var(--twilight);
+.underlink:focus {
+  background-color: var(--dark-sage);
+  outline: none;
+}
+
+.underlink:active::after {
+  margin-top: 0;
+}
+
+.underlink:hover::after {
+  transform: scaleX(1.25);
+}
+
+.underlink::after {
+  border-top: 3px solid var(--flathead-blue);
   content: '';
   display: block;
   left: 50%;
@@ -488,11 +614,12 @@ a {
   margin-top: -2px;
   position: absolute;
   top: 100%;
+  transition: transform 0.3s var(--ease-in-out);
   width: 30px;
 }
 
 @media (min-width: 700px) {
-  .navmain a::after {
+  .underlink::after {
     border-top-width: 4px;
     margin-left: -25px;
     width: 50px;
@@ -535,36 +662,57 @@ button {
 }
 
 .form-label {
-  font-size: 0.9090909091rem;
+  font-size: 0.7272727273rem;
   line-height: 1.25;
+  letter-spacing: -0.025em;
   margin: 0 0 6px;
+}
+
+@media (min-width: 700px) {
+  .form-label {
+    font-size: 0.9090909091rem;
+  }
+}
+
+.form-input,
+.form-button {
+  border: 2px solid transparent;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 8px 20px;
+  width: 100%;
+}
+
+@media (min-width: 700px) {
+  .form-input,
+  .form-button {
+    font-size: 1.125rem;
+    padding: 12px 20px;
+  }
+}
+
+.form-input:focus,
+.form-button:focus {
+  border-color: var(--ochre);
+  outline: none;
 }
 
 .form-input {
   background-color: var(--white);
-  border: 0;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  padding: 15px 20px;
-  width: 100%;
 }
 
 .form-button {
-  background-color: var(--twilight);
-  border: 0;
+  background-color: var(--glacier-blue);
   color: var(--white);
   cursor: pointer;
-  display: block;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  padding: 15px 20px;
   text-transform: uppercase;
-  width: 100%;
 }
 
 .form-button:hover,
 .form-button:focus {
-  background-color: var(--deep-twilight);
+  background-color: var(--flathead-blue);
+  border-color: var(--flathead-blue);
 }
 
 
@@ -591,29 +739,6 @@ button {
 
 .contactinfo a {
   display: inline-block;
-  padding: 12px 8px;
-  position: relative;
-  text-decoration: none;
-}
-
-.contactinfo a::after {
-  border-top: 3px solid var(--twilight);
-  content: '';
-  display: block;
-  left: 50%;
-  margin-left: -15px;
-  margin-top: -2px;
-  position: absolute;
-  top: 100%;
-  width: 30px;
-}
-
-@media (min-width: 700px) {
-  .contactinfo a::after {
-    border-top-width: 4px;
-    margin-left: -25px;
-    width: 50px;
-  }
 }
 
 .contactinfo .sponsor {
