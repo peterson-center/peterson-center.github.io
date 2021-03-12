@@ -39,6 +39,10 @@ body {
   text-size-adjust: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--sage);
   color: var(--flathead-blue);
