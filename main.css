@@ -247,6 +247,12 @@ a {
   }
 }
 
+@media (min-width: 1300px) {
+  .col-center--wide {
+    max-width: 700px;
+  }
+}
+
 
 
 
@@ -529,7 +535,8 @@ a {
 
 .navmain {
   bottom: 0;
-  font-size: 0.6818181818rem;
+  font-size: 0.4545454545rem;
+  font-size: clamp(0.4545454545rem, 4.2vw, 1rem);
   left: 0;
   padding: 40px 10px;
   position: absolute;
@@ -538,12 +545,6 @@ a {
   text-transform: uppercase;
 }
 
-@media (min-width: 370px) {
-  .navmain {
-    font-size: 0.7727272727rem;
-    font-size: clamp(0.7727272727rem, 4.5vw, 1rem);
-  }
-}
 @media (min-width: 700px) {
   .navmain {
     font-size: 1rem;
@@ -551,12 +552,14 @@ a {
     padding: 60px 20px;
   }
 }
+
 @media (min-width: 1000px) {
   .navmain {
     padding: 0;
     position: static;
   }
 }
+
 @media (min-width: 1300px) {
   .navmain {
     font-size: 1.0909090909rem;
