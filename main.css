@@ -10,6 +10,7 @@
   --deep-twilight: rgb(38, 60, 71);
 
   --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
 }
 
 *, *::before, *::after {
@@ -499,11 +500,75 @@ a {
 }
 
 
-/* Modules: Contact */
+/* Modules: Forms */
 
 form {
-  margin: 0 0 60px;
+  margin: 0 auto 60px;
+  max-width: 40ch;
 }
+
+input,
+textarea,
+button {
+  font-family: var(--font-sans);
+}
+
+.form-field-row {
+  align-items: top;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field-row .form-field-group {
+  width: calc(50% - 10px);
+}
+
+.form-field-group {
+  position: relative;
+  margin: 0 0 20px;
+}
+
+.form-label,
+.form-input {
+  display: block;
+  
+}
+
+.form-label {
+  font-size: 0.9090909091rem;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+.form-input {
+  background-color: var(--white);
+  border: 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.form-button {
+  background-color: var(--twilight);
+  border: 0;
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.form-button:hover,
+.form-button:focus {
+  background-color: var(--deep-twilight);
+}
+
+
+/* Modules: Contact */
 
 .contactinfo {
   font-size: 0.8181818182rem;
