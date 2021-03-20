@@ -92,6 +92,9 @@ body::after {
   }
 }
 
+main {
+  position: relative;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
@@ -230,6 +233,19 @@ a {
     height: 200px;
     max-width: 360px;
     width: calc(50% - 320px - 20px);
+  }
+}
+
+.sticky-wrap {
+  display: none;
+  height: 0;
+  position: sticky;
+  top: 0;
+}
+
+@media (min-width: 1000px) {
+  .sticky-wrap {
+    display: block;
   }
 }
 
@@ -468,6 +484,7 @@ a {
   min-height: 100vh;
   padding: 150px 10px;
   position: relative;
+  z-index: 200;
 }
 
 @media (min-width: 700px) {
@@ -492,6 +509,7 @@ a {
   position: fixed;
   top: 10px;
   width: 80px;
+  z-index: 1000;
 }
 
 @media (min-width: 700px) {
