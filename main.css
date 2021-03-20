@@ -1,6 +1,6 @@
 
 :root {
-  --base-font-size: 22px;
+  --base-font-size: 20px;
 
   --font-sans: Montserrat, sans-serif;
 
@@ -43,7 +43,7 @@ body {
   background-color: var(--sage);
   color: var(--flathead-blue);
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-weight: 700;
   padding-bottom: 10px;
   position: relative;
 }
@@ -94,7 +94,7 @@ body::after {
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 ul, ol {
@@ -241,15 +241,18 @@ a {
 @media (min-width: 1000px) {
   .col-center {
     box-sizing: content-box;
-    max-width: 640px;
+    max-width: 560px;
     padding-left: 200px;
     padding-right: 200px;
   }
 }
 
 @media (min-width: 1300px) {
-  .col-center--wide {
-    max-width: 700px;
+  .col-center {
+    box-sizing: content-box;
+    max-width: 620px;
+    padding-left: 200px;
+    padding-right: 200px;
   }
 }
 
@@ -289,7 +292,7 @@ a {
 @media (min-width: 1000px) {
   .hed {
     font-size: 1rem;
-    margin: 150px 0;
+    margin: 100px 0;
   }
 }
 
@@ -300,79 +303,47 @@ a {
   }
 }
 
-.hed::before,
-.hed::after {
-  content: '—';
-  display: inline;
-  margin: 0 0.25em;
+.card header {
+  margin: 0 0 20px;
+  padding: 0 0 20px;
+  position: relative;
+}
+
+.card header::after {
+  border-top: 3px solid var(--flathead-blue);
+  bottom: 0;
+  content: ' ';
+  height: 0;
+  left: 0;
+  position: absolute;
+  width: 50px;
+}
+
+.card header p {
+  margin: 0 0 10px;
 }
 
 .subhed {
   font-size: 1.3636363636em;
   letter-spacing: -0.0125em;
   line-height: 1.2;
-  margin: 0 0 15px;
-  padding-bottom: 15px;
+  margin: 0 0 10px;
   position: relative;
-}
-
-.subhed::after {
-  border-top: 3px solid var(--flathead-blue);
-  content: '';
-  display: block;
-  left: 0;
-  margin-top: -2px;
-  position: absolute;
-  top: 100%;
-  transition: transform 0.3s var(--ease-in-out);
-  width: 30px;
-}
-
-@media (min-width: 700px) {
-  .subhed::after {
-    border-top-width: 4px;
-    width: 50px;
-  }
 }
 
 .subhed a {
   position: relative;
+  text-decoration: none;
 }
 
 .subhed a:hover {
   text-decoration: underline;
-  text-decoration-color: var(--dark-sage);
+  text-decoration-color: var(--ochre);
   text-decoration-thickness: 4px;
-}
-
-.subhed a::before {
-  border-color: transparent transparent transparent var(--dark-sage);
-  border-style: solid;
-  border-width: 0.666em 0 0.666em 1em;
-  content: ' ';
-  display: block;
-  height: 0;
-  margin-right: 0.5em;
-  opacity: 0;
-  position: absolute;
-  right: 100%;
-  top: 0;
-  transform: translateX(-0.5em);
-  transition-duration: 0.3s;
-  transition-property: opacity, transform;
-  transition-timing-function: var(--ease-in);
-  width: 0;
-  will-change: opacity;
 }
 
 .subhed a:focus {
   background-color: var(--dark-sage);
-}
-
-.subhed a:hover::before,
-.subhed a:focus::before {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .text-body .subhed a {
@@ -383,6 +354,31 @@ a {
 
 .text-body .subhed a:focus {
   background-color: var(--dark-sage);
+}
+
+.url {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  margin: -8px 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.url:last-child {
+  margin-bottom: 0;
+}
+
+.url a {
+  font-size: 0.8181818182rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.url a:hover,
+.url a:focus {
+  border-bottom: 2px solid var(--ochre);
 }
 
 .text-body {
@@ -402,7 +398,11 @@ a {
   }
 }
 
-.text-body a {
+.text-body p {
+  font-weight: 400;
+}
+
+.text-body p a {
   background-color: var(--dark-sage);
   border-bottom: 2px solid transparent;
   padding: 3px 4px 1px;
@@ -412,8 +412,8 @@ a {
   transition-timing-function: var(--ease-in);
 }
 
-.text-body a:hover,
-.text-body a:focus {
+.text-body p a:hover,
+.text-body p a:focus {
   background-color: transparent;
   border-bottom-color: var(--ochre);
   outline: none;
@@ -475,9 +475,8 @@ a {
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1400px) {
   .pane--header {
-    margin-bottom: 200px;
     padding-bottom: 230px;
     padding-top: 230px;
   }
@@ -495,13 +494,13 @@ a {
 
 @media (min-width: 700px) {
   .king {
-    height: 130px;
-    margin-left: -65px;
+    height: 120px;
+    margin-left: -60px;
     top: 20px;
-    width: 130px;
+    width: 120px;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 1400px) {
   .king {
     height: 150px;
     margin-left: -75px;
@@ -520,11 +519,11 @@ a {
 
 @media (min-width: 1000px) {
   .wordmark {
-    width: clamp(320px, 30vw, 380px);
+    width: clamp(260px, 25vw, 380px);
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1400px) {
   .wordmark {
     width: 380px;
   }
