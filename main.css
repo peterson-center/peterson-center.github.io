@@ -236,6 +236,8 @@ a {
 .col-center {
   margin-left: auto;
   margin-right: auto;
+  min-width: 0;
+  max-width: 100%;
 }
 
 @media (min-width: 1000px) {
@@ -250,7 +252,7 @@ a {
 @media (min-width: 1300px) {
   .col-center {
     box-sizing: content-box;
-    max-width: 620px;
+    max-width: 640px;
     padding-left: 200px;
     padding-right: 200px;
   }
@@ -260,12 +262,12 @@ a {
 
 
 .mb {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 @media (min-width: 700px) {
   .mb {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
   }
 }
 
@@ -435,19 +437,19 @@ a {
 
 @media (min-width: 400px) {
   .text-big {
-    font-size: clamp(1rem, 4.75vw, 1.4545454545rem);
+    font-size: clamp(1rem, 4.75vw, 1.3636363636rem);
   }
 }
 
 @media (min-width: 700px) {
   .text-big {
-    font-size: 1.4545454545rem;
+    font-size: 1.3636363636rem;
   }
 }
 
 @media (min-width: 1300px) {
   .text-big {
-    font-size: 1.6363636364rem;
+    font-size: 1.4545454545rem;
   }
 }
 
@@ -487,24 +489,24 @@ a {
   left: 50%;
   margin-left: -40px;
   margin-top: 20px;
-  position: absolute;
+  position: fixed;
   top: 10px;
   width: 80px;
 }
 
 @media (min-width: 700px) {
   .king {
-    height: 120px;
-    margin-left: -60px;
+    height: 100px;
+    margin-left: -50px;
     top: 20px;
-    width: 120px;
+    width: 100px;
   }
 }
 @media (min-width: 1400px) {
   .king {
-    height: 150px;
-    margin-left: -75px;
-    width: 150px;
+    height: 120px;
+    margin-left: -60px;
+    width: 120px;
   }
 }
 
@@ -514,18 +516,18 @@ a {
   height: auto;
   margin: 40px auto;
   max-width: 75%;
-  width: 320px;
+  width: 260px;
 }
 
 @media (min-width: 1000px) {
   .wordmark {
-    width: clamp(260px, 25vw, 380px);
+    width: clamp(260px, 25vw, 320px);
   }
 }
 
 @media (min-width: 1400px) {
   .wordmark {
-    width: 380px;
+    width: 320px;
   }
 }
 
@@ -729,6 +731,12 @@ a {
 form {
   margin: 0 auto 60px;
   max-width: 40ch;
+}
+
+@media (min-width: 1000px) {
+  form {
+    margin-bottom: 0;
+  }
 }
 
 input,
