@@ -338,7 +338,11 @@ a {
 }
 
 .card header p {
-  margin: 0 0 10px;
+  margin: -8px 0 8px;
+}
+
+.card header p+.url {
+  margin-top: 0;
 }
 
 .subhed {
@@ -421,9 +425,8 @@ a {
 }
 
 .text-body p a {
-  background-color: var(--dark-sage);
-  border-bottom: 2px solid transparent;
-  padding: 3px 4px 1px;
+  border-bottom: 2px solid var(--dark-sage);
+  padding: 2px 2px 0;
   text-decoration: none;
   transition-duration: 0.2s;
   transition-property: background, border;
@@ -432,7 +435,7 @@ a {
 
 .text-body p a:hover,
 .text-body p a:focus {
-  background-color: transparent;
+  background-color: var(--dark-sage);
   border-bottom-color: var(--ochre);
   outline: none;
   transition-duration: 0.3s;
