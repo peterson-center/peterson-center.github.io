@@ -840,6 +840,18 @@ button {
 
 /* Modules: Contact */
 
+@media (min-width: 1000px) {
+  .pane .contactinfo-group {
+    height: auto;
+    min-height: 160px;
+    padding: 40px 0;
+  }
+
+  .contactinfo-group .contactinfo {
+    margin-top: 20px;
+  }
+}
+
 .contactinfo {
   font-size: 0.8888888889rem;
   margin: 20px auto;
