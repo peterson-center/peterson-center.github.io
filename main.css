@@ -256,10 +256,15 @@ a {
   max-width: 100%;
 }
 
+@media (min-width: 600px) {
+  .col-center {
+    max-width: 560px;
+  }
+}
+
 @media (min-width: 1000px) {
   .col-center {
     box-sizing: content-box;
-    max-width: 560px;
     padding-left: 200px;
     padding-right: 200px;
   }
@@ -522,7 +527,7 @@ a {
   left: 50%;
   margin-left: -40px;
   margin-top: 20px;
-  position: fixed;
+  position: absolute;
   top: 10px;
   width: 80px;
   z-index: 1000;
@@ -536,6 +541,13 @@ a {
     width: 100px;
   }
 }
+
+@media (min-width: 900px) {
+  .king {
+    position: fixed;
+  }
+}
+
 @media (min-width: 1400px) {
   .king {
     height: 120px;
