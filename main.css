@@ -1,6 +1,6 @@
 
 :root {
-  --base-font-size: 20px;
+  --base-font-size: 18px;
 
   --font-sans: Montserrat, sans-serif;
 
@@ -641,7 +641,7 @@ a {
 /* Modules: Links */
 
 .underlink {
-  padding: 12px 8px;
+  padding: 12px 8px 14px;
   position: relative;
   text-decoration: none;
 }
@@ -661,13 +661,12 @@ a {
 
 .underlink::after {
   border-top: 3px solid var(--flathead-blue);
+  bottom: 0;
   content: '';
   display: block;
   left: 50%;
   margin-left: -15px;
-  margin-top: -2px;
   position: absolute;
-  top: 100%;
   transition: transform 0.3s var(--ease-in-out);
   width: 30px;
 }
@@ -842,7 +841,7 @@ button {
 /* Modules: Contact */
 
 .contactinfo {
-  font-size: 0.8181818182rem;
+  font-size: 0.8888888889rem;
   margin: 20px auto;
 }
 
@@ -860,8 +859,20 @@ button {
   }
 }
 
+@media (max-width: 499px) {
+  .contactinfo--sm {
+    font-size: 0.7777777778rem;
+  }
+}
+
 .contactinfo a {
   display: inline-block;
+}
+
+.contactinfo--sm a {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contactinfo .sponsor {
